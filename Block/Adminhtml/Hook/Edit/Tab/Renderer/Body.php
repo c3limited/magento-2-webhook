@@ -40,6 +40,7 @@ use Magento\Sales\Model\ResourceModel\Order\Status\History as OrderStatusResourc
 use Mageplaza\Webhook\Block\Adminhtml\LiquidFilters;
 use Mageplaza\Webhook\Model\Config\Source\HookType;
 use Mageplaza\Webhook\Model\HookFactory;
+use IWD\StoreLocator\Model\ResourceModel\Item as StockistResource;
 
 /**
  * Class Body
@@ -113,6 +114,11 @@ class Body extends Element
     protected $subscriber;
 
     /**
+     * @var StockistResource
+     */
+    protected $stockistResource;
+
+    /**
      * Body constructor.
      *
      * @param Context $context
@@ -144,6 +150,7 @@ class Body extends Element
         LiquidFilters $liquidFilters,
         HookFactory $hookFactory,
         Subscriber $subscriber,
+        StockistResource $stockistResource,
         array $data = []
     ) {
         $this->liquidFilters = $liquidFilters;
@@ -158,6 +165,7 @@ class Body extends Element
         $this->categoryFactory = $categoryFactory;
         $this->quoteResource = $quoteResource;
         $this->subscriber = $subscriber;
+        $this->stockistResource = $stockistResource;
 
         parent::__construct($context, $data);
     }
@@ -250,6 +258,13 @@ class Body extends Element
             case HookType::SUBSCRIBER:
                 $collectionData = $this->subscriber->getConnection()
                     ->describeTable($this->subscriber->getMainTable());
+                $attrCollection = $this->getAttrCollectionFromDb($collectionData);
+                break;
+            case HookType::NEW_STOCKIST:
+            case HookType::UPDATE_STOCKIST:
+            case HookType::DELETE_STOCKIST:
+                $collectionData = $this->stockistResource->getConnection()
+                    ->describeTable($this->stockistResource->getMainTable());
                 $attrCollection = $this->getAttrCollectionFromDb($collectionData);
                 break;
             default:

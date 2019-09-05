@@ -72,4 +72,10 @@
     <event name="newsletter_subscriber_save_after">
         <observer name="mp_wh_subscriber" instance="Mageplaza\Webhook\Observer\Subscriber"/>
     </event>
+    <event name="storelocator_item_save_after">
+        <observer name="webhook_save_storelocator_item" instance="Mageplaza\Webhook\Observer\AfterStockist"/>
+    </event>
+    <event name="storelocator_item_delete_before">
+        <observer name="webhook_save_storelocator_item" instance="Mageplaza\Webhook\Observer\BeforeDeleteStockist"/>
+    </event>
 </config>

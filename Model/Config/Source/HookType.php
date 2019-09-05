@@ -46,7 +46,10 @@ class HookType implements ArrayInterface
     const CUSTOMER_LOGIN    = 'customer_login';
     const SUBSCRIBER        = 'subscriber';
     //    const UPDATE_CART = 'update_cart';
-    const ABANDONED_CART = 'abandoned_cart';
+    const ABANDONED_CART    = 'abandoned_cart';
+    const NEW_STOCKIST      = 'new_stockist';
+    const UPDATE_STOCKIST   = 'update_stockist';
+    const DELETE_STOCKIST   = 'delete_stockist';
 
     /**
      * Options getter
@@ -92,6 +95,9 @@ class HookType implements ArrayInterface
             self::SUBSCRIBER        => 'Subscriber',
             //            self::UPDATE_CART => 'Update cart',
             self::ABANDONED_CART    => 'Abandoned Cart',
+            self::NEW_STOCKIST      => 'New Stockist',
+            self::UPDATE_STOCKIST   => 'Update Stockist',
+            self::DELETE_STOCKIST   => 'Delete Stockist',
         ];
     }
 }
