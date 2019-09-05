@@ -239,6 +239,10 @@ class Data extends CoreHelper
             $filtersMethods = $this->liquidFilters->getFiltersMethods();
 
             $template->registerFilter($this->liquidFilters);
+            // Add custom hmac filter
+            $template->registerFilter('hmac_sha256', function($string, $key) {
+                return hash_hmac('sha256', $string, $key);
+            });
             $template->parse($templateHtml, $filtersMethods);
 
             return $template->render([
