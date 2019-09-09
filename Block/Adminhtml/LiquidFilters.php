@@ -109,6 +109,7 @@ class LiquidFilters
         $filters = [
             'abs'            => ['label' => __('Abs'), 'params' => []],
             'append'         => ['label' => __('Append'), 'params' => [['label' => __('Append'), 'defVal' => '']]],
+            'hmac_sha256'    => ['label' => __('HMAC SHA256'), 'params' => [['label' => __('Key'), 'defVal' => '']]],
             'at_least'       => ['label' => __('At Least'), 'params' => [['label' => __('At Least'), 'defVal' => '']]],
             'at_most'        => ['label' => __('At Most'), 'params' => [['label' => __('At Most'), 'defVal' => '']]],
             'capitalize'     => ['label' => __('Capitalize'), 'params' => []],
