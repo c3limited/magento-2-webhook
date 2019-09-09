@@ -25,7 +25,6 @@
         <sequence>
             <module name="Mageplaza_Core"/>
             <module name="Magento_Backend"/>
-            <module name="IWD_StoreLocator"/>
         </sequence>
     </module>
 </config>

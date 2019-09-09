@@ -47,9 +47,6 @@ class HookType implements ArrayInterface
     const SUBSCRIBER        = 'subscriber';
     //    const UPDATE_CART = 'update_cart';
     const ABANDONED_CART    = 'abandoned_cart';
-    const NEW_STOCKIST      = 'new_stockist';
-    const UPDATE_STOCKIST   = 'update_stockist';
-    const DELETE_STOCKIST   = 'delete_stockist';
 
     /**
      * Options getter
